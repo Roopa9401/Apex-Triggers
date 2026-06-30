@@ -1,19 +1,23 @@
 # 🚀 Trigger 1: Create Contact on Account Creation
 
-> Automatically creates a default **Contact** whenever a new **Account** is created.
+## Description
 
-## 📖 Overview
+This project contains an Apex Trigger and Handler class that automatically creates a Contact whenever a new Account is created.
 
-This trigger ensures that every newly created **Account** has an associated **Contact**. It demonstrates how to create related records using an **after insert** trigger while following Salesforce best practices such as **bulkification** and the **Trigger Handler pattern**.
+## Components
 
-## 🛠️ Concepts Demonstrated
+* **AccountTrigger** - Executes on `after insert` of Account records.
+* **AccountTriggerHandler** - Contains the logic to create Contact records.
 
-✅ After Insert Trigger
+## Functionality
 
-✅ Trigger Handler Pattern
+When a new Account is created:
 
-✅ Bulkification
+* A Contact is automatically created.
+* Contact Last Name is set to the Account Name.
+* Contact is linked to the respective Account.
 
-✅ Creating Related Records
+## Files
 
-✅ Using `Trigger.new`
+* `AccountTrigger.trigger`
+* `AccountTriggerHandler.cls`
