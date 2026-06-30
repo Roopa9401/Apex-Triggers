@@ -1,8 +1,14 @@
 trigger AccountTrigger on Account (after insert) {
-    if(Trigger.isAfter){
-        if(Trigger.isInsert){
+
+    // Check if the trigger is executing in the 'after' context
+    if (Trigger.isAfter) {
+
+        // Check if the trigger event is an insert operation
+        if (Trigger.isInsert) {
+
+            // Call the handler method and pass the newly created Account records
+            // Trigger.new contains the list of newly inserted Accounts
             AccountTriggerHandler.createConOnAccCreation(Trigger.new);
         }
     }
-
 }
