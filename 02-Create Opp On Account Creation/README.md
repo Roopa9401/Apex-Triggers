@@ -1,5 +1,5 @@
-# Account Trigger - Auto Opportunity Creation
-
+# 🚀 Trigger 2: Create Opportunity on Account Creation
+ 
 ## Description
 
 This project contains an Apex Trigger and Handler class that automatically creates an Opportunity whenever a new Account is created.
