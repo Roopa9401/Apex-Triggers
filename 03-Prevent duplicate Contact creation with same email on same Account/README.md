@@ -1,4 +1,4 @@
-# 🚀 Trigger: Prevent Duplicate Contact Email Under the Same Account
+# 🚀 Trigger 3: Prevent Duplicate Contact Email Under the Same Account
 
 ## Description
 
