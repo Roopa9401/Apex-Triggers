@@ -2,28 +2,33 @@
 
 ## Description
 
-This project contains an Apex Trigger and Handler class that automatically assigns a specific owner to Cases whenever the Priority is set to **High**.
+This project contains an Apex Trigger and Handler class that automatically assigns a specific owner to Cases when they are created with **High** priority or when an existing Case's Priority is updated to **High**.
 
 ## Components
 
 - **CaseTrigger** – Executes on **before insert** and **before update** of Case records.
-- **CaseTriggerHandler** – Contains the business logic to assign the appropriate Case owner.
+- **CaseTriggerHandler** – Contains the business logic to assign the specified owner based on the Case Priority.
 
 ## Functionality
 
-When a Case is created or updated:
+### On Case Creation
 
-- Checks whether the **Priority** is set to **High**.
-- Assigns the specified User as the Case Owner.
-- Ensures High Priority Cases are automatically routed to the designated owner.
+- Checks if the **Priority** is set to **High**.
+- Assigns the specified User as the Case Owner before the record is saved.
+
+### On Case Update
+
+- Checks whether the **Priority** has changed from a value other than **High** to **High**.
+- Assigns the specified User as the new Case Owner.
+- Does not update the owner if the Case was already marked as **High**.
 
 ## Best Practices Implemented
 
 - Bulkified to support multiple Case records in a single transaction.
 - Uses a single trigger per object.
 - Separates business logic into a Handler class.
-- Avoids DML operations inside loops.
-- Designed for easy enhancement using Custom Metadata or Custom Settings for owner configuration.
+- Performs owner assignment before the record is saved.
+- Updates only Cases whose Priority changes to **High**, avoiding unnecessary updates.
 
 ## Files
 
